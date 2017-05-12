@@ -1,0 +1,40 @@
+#
+#   Setup
+title: Fight The Bunnies
+
+#
+#   Build
+baseurl: ""
+source: "./app"
+permalink: pretty
+
+#
+#   Includes
+include:
+
+#
+#   Excludes
+exclude:
+    - node_modules
+    - gulpfile.js
+    - package.json
+
+      ##
+      ##   Collections
+      #collections:
+      #    projects:
+      #        output: true
+      #    tools:
+      #        output: true
+      #
+      #defaults:
+      #    - scope:
+      #        type: projects
+      #      values:
+      #        layout: project
+      #    - scope:
+      #        type: tools
+      #      values:
+      #        layout: tool
+      #
+
