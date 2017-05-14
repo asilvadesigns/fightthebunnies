@@ -1,3 +1,13 @@
+/*
+ *var
+ */
+$rhythm: 1.618;
+$h6: 0.85rem;
+$h7: 0.70rem;
+
+/*
+ *reset
+ */
 * {
   margin: 0;
   padding: 0;
@@ -5,13 +15,17 @@
   color: inherit;
 }
 
+/*
+ *typography
+ */
 html {
   font-size: 100%;
 }
 
 body {
+  font-size: 1.125rem;
   font-family: sans-serif;
-  line-height: 1.25;
+  line-height: $rhythm;
 }
 
 h1,
@@ -20,16 +34,60 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: 700;
-  margin-bottom: (1.25 / 2) * 1rem;
+  //font-weight: 700;
+  //margin-bottom: $rhythm / 2 * 1rem;
 }
 
 p {
-  margin-bottom: (1.25 / 2) * 1rem;
+  margin-bottom: $rhythm / 2 * 1rem;
 }
 
+/*
+ *grid
+ */
 .container {
-  max-width: 28rem;
+  max-width: 28em;
   margin-left: auto;
   margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/*
+ *header
+ */
+.header {
+  margin-bottom: $rhythm / 2 * 1rem;
+}
+
+.header__title {
+
+}
+
+.header__subtitle {
+  font-size: $h6;
+}
+
+/*
+ *navbar
+ */
+.navbar {
+  margin-bottom: $rhythm * 1rem;
+}
+
+.navbar__item {
+  font-size: $h7;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/*
+ *list
+ */
+.list {
+
+}
+
+.list__item {
+  margin-bottom: $rhythm / 2 * 1rem;
 }

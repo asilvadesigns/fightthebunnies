@@ -42,7 +42,7 @@ gulp.task("default",
 //
 //  Task Jekyll - spawn jekyll task in new terminal, when finished, callback
 function Jekyll(done) {
-  return cp.spawn(jekyll , ['build','--incremental'], {stdio: 'inherit'}).on('close', done);
+  return cp.spawn(jekyll , ['build'], {stdio: 'inherit'}).on('close', done);
 }
 
 //

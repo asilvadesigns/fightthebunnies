@@ -1,0 +1,17 @@
+---
+layout: default
+---
+
+<nav class="navbar">
+  <a class="navbar__item" href="/">back to posts</a>
+</nav>
+
+<header class="header">
+  <h3 class="header__title">
+    {{ page.title }}
+  </h3>
+  <div class="header__subtitle">
+    {{ page.date | date: '%B %d, %Y' }}
+  </div>
+</header>
+{{ content }}
