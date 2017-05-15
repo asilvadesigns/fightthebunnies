@@ -22,10 +22,6 @@ $h1: $h2 * $ratio;
   }
 }
 
-@function toRem($input) {
-  @return $input * 1rem;
-}
-
 @function rhythm($size, $unit: 'rem') {
   $calc: $size * $rhythm;
   @if $unit == 'rem' {
@@ -43,10 +39,17 @@ $h1: $h2 * $ratio;
   padding: 0;
   font: inherit;
   color: inherit;
+  text-decoration: none;
 }
 
 img {
   max-width: 100%;
+}
+
+hr {
+  border: 0 none;
+  height: 1px;
+  background-color: currentColor;
 }
 
 /*
@@ -99,7 +102,7 @@ img {
 }
 
 html {
-  font-size: 22 / 16 * 100%;
+  font-size: 20 / 16 * 100%;
 }
 
 body {
@@ -116,10 +119,22 @@ h4,
 h5,
 h6 {
   @include sans-serif--bold();
+  line-height: $ratio;
 }
 
 p {
   margin-bottom: rhythm(.5);
+}
+
+strong {
+  @include serif();
+  @include small-caps();
+}
+
+hr {
+  height: rhythm(.125);
+  width: rhythm(0.625);
+  margin: rhythm(1) 0;
 }
 
 /*
@@ -141,7 +156,8 @@ p {
 }
 
 .header__title {
-  font-size: $h5;
+  @include sans-serif--bold();
+  font-size: $h4;
 }
 
 .header__subtitle {
@@ -152,7 +168,7 @@ p {
  *navbar
  */
 .navbar {
-  margin-bottom: rhythm(1);
+  margin-bottom: rhythm(2);
 }
 
 .navbar__item {
@@ -172,33 +188,39 @@ p {
   margin-bottom: rhythm(.5);
 }
 
-///*
-// *feature
-// */
-//<div class="feature feature--square feature--rounded">
-//  <img class="feature__image" src="{{ site.baseurl }}img/albertosilva__face.jpg" alt="Alberto Silva's Portrait">
-//</div>
-//
-//.feature {
-//  position: relative;
-//
-//  &--square {
-//    height: 6rem;
-//    width: 6rem;
-//  }
-//
-//  &--rounded {
-//    border-radius: 50%;
-//    overflow: hidden;
-//  }
-//}
-//
-//.feature__image {
-//  position: absolute;
-//  top: 50%;
-//  left: 50%;
-//  transform: translateY(-50%) translateX(-50%);
-//}
+/*
+ *text utilites
+ */
+.text {
+  &--centered {
+    text-align: center;
+  }
+}
+
+/*
+ *feature
+ */
+.feature {
+  position: relative;
+  margin-bottom: rhythm(0.625);
+
+  &--square {
+    height: 4rem;
+    width: 4rem;
+  }
+
+  &--rounded {
+    border-radius: 50%;
+    overflow: hidden;
+  }
+}
+
+.feature__image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+}
 
 ///*
 // *fade

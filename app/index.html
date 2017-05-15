@@ -6,13 +6,23 @@ layout: default
   <a class="navbar__item" href="/">Home</a>
 </nav>
 
+<div class="feature feature--square feature--rounded">
+  <img class="feature__image" src="{{ site.baseurl }}img/albertosilva__face.jpg" alt="Alberto Silva's Portrait">
+</div>
+
 <header class="header">
-  <h3 class="header__title">Hello there, welcome to my ramblings.</h3>
+  <h3 class="header__title">
+    Hello there,
+    <br>
+    welcome to my ramblings.
+  </h3>
 </header>
+
+<hr>
 
 <div class="list">
   {% assign sorted = (site.posts | sort: 'date') %}
-  {% for post in sorted %}
+  {% for post in sorted reversed %}
   <div class="list__item">
     <div class="header">
       <a class="header__title" href="{{ site.baseurl }}{{ post.url }}">

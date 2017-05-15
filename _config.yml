@@ -29,7 +29,11 @@ exclude:
 #    tools:
 #        output: true
 #
-#defaults:
+defaults:
+  - scope:
+      type: posts
+    values:
+      layout: post
 #    - scope:
 #        type: projects
 #      values:
