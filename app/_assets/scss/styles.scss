@@ -1,9 +1,39 @@
 /*
  *var
  */
+$ratio: 1.414;
 $rhythm: 1.618;
-$h6: 0.85rem;
-$h7: 0.70rem;
+$h5: 1rem;
+$h6: $h5 / $ratio;
+$h4: $h5 * $ratio;
+$h3: $h4 * $ratio;
+$h2: $h3 * $ratio;
+$h1: $h2 * $ratio;
+
+/*
+ *tools
+ */
+@function toUnit($input, $unit) {
+  @if $unit == 'rem' {
+    @return $input * 1rem;
+  }
+  @if $unit == 'em' {
+    @return $input * 1em;
+  }
+}
+
+@function toRem($input) {
+  @return $input * 1rem;
+}
+
+@function rhythm($size, $unit: 'rem') {
+  $calc: $size * $rhythm;
+  @if $unit == 'rem' {
+    @return toUnit($calc, 'rem');
+  } @else if $unit == 'em' {
+    @return toUnit($calc, 'em');
+  }
+}
 
 /*
  *reset
@@ -15,17 +45,68 @@ $h7: 0.70rem;
   color: inherit;
 }
 
+img {
+  max-width: 100%;
+}
+
 /*
  *typography
  */
+@font-face {
+  font-family: 'MarkWeb-Bold';
+  src: url('../font/MarkWeb-Bold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'MarkWeb';
+  src: url('../font/MarkWeb.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'TisaWeb-Bold';
+  src: url('../font/TisaWeb-Bold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'TisaWeb';
+  src: url('../font/TisaWeb.woff') format('woff');
+}
+
+@mixin sans-serif--bold() {
+  font-family: 'MarkWeb-Bold', sans-serif;
+  font-feature-settings: "kern" 1, "ss01" 1, "pnum" 1, "onum" 1;
+}
+
+@mixin sans-serif() {
+  font-family: 'MarkWeb', sans-serif;
+  font-feature-settings: "kern" 1, "ss01" 1, "pnum" 1, "onum" 1;
+}
+
+@mixin serif--bold() {
+  font-family: 'TisaWeb-Bold', serif;
+  font-feature-settings: "frac" 1, "kern" 1, "liga" 1, "pnum" 1, "onum" 1;
+}
+
+@mixin serif() {
+  font-family: 'TisaWeb', serif;
+  font-feature-settings: "frac" 1, "kern" 1, "liga" 1, "pnum" 1, "onum" 1;
+}
+
+@mixin small-caps() {
+  font-feature-settings: "smcp" 1;
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+}
+
 html {
-  font-size: 100%;
+  font-size: 22 / 16 * 100%;
 }
 
 body {
-  font-size: 1.125rem;
-  font-family: sans-serif;
+  @include serif();
+  font-size: 1rem;
   line-height: $rhythm;
+  color: #333;
 }
 
 h1,
@@ -34,12 +115,11 @@ h3,
 h4,
 h5,
 h6 {
-  //font-weight: 700;
-  //margin-bottom: $rhythm / 2 * 1rem;
+  @include sans-serif--bold();
 }
 
 p {
-  margin-bottom: $rhythm / 2 * 1rem;
+  margin-bottom: rhythm(.5);
 }
 
 /*
@@ -57,11 +137,11 @@ p {
  *header
  */
 .header {
-  margin-bottom: $rhythm / 2 * 1rem;
+  margin-bottom: rhythm(.5);
 }
 
 .header__title {
-
+  font-size: $h5;
 }
 
 .header__subtitle {
@@ -72,13 +152,13 @@ p {
  *navbar
  */
 .navbar {
-  margin-bottom: $rhythm * 1rem;
+  margin-bottom: rhythm(1);
 }
 
 .navbar__item {
-  font-size: $h7;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
+  @include sans-serif();
+  @include small-caps();
+  font-size: $h6;
 }
 
 /*
@@ -89,5 +169,45 @@ p {
 }
 
 .list__item {
-  margin-bottom: $rhythm / 2 * 1rem;
+  margin-bottom: rhythm(.5);
 }
+
+///*
+// *feature
+// */
+//<div class="feature feature--square feature--rounded">
+//  <img class="feature__image" src="{{ site.baseurl }}img/albertosilva__face.jpg" alt="Alberto Silva's Portrait">
+//</div>
+//
+//.feature {
+//  position: relative;
+//
+//  &--square {
+//    height: 6rem;
+//    width: 6rem;
+//  }
+//
+//  &--rounded {
+//    border-radius: 50%;
+//    overflow: hidden;
+//  }
+//}
+//
+//.feature__image {
+//  position: absolute;
+//  top: 50%;
+//  left: 50%;
+//  transform: translateY(-50%) translateX(-50%);
+//}
+
+///*
+// *fade
+// */
+//.fade {
+//  opacity: 0;
+//  transition: opacity 0.5s ease-in-out;
+//
+//  &.in {
+//    opacity: 1;
+//  }
+//}
