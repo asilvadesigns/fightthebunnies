@@ -21,19 +21,22 @@ exclude:
   - gulpfile.js
   - package.json
 
-##
-##   Collections
-#collections:
-#    projects:
-#        output: true
-#    tools:
-#        output: true
 #
+#   Collections
+collections:
+  pages:
+    output: true
+    permalink: /:title
+
 defaults:
   - scope:
       type: posts
     values:
       layout: post
+  - scope:
+      type: pages
+    values:
+      layout: page
 #    - scope:
 #        type: projects
 #      values:

@@ -2,16 +2,14 @@
 <html lang="en">
   {% include head.html %}
   <body>
-    <main class="main fade" data-toggle="fade">
+    {% include nav.html %}
+    <main class="main">
       <div class="container">
+        {% include header.html %}
         {{ content }}
       </div>
     </main>
-    <footer class="footer">
-      <div class="container">
-        Made by <a href="http://github.com/asilvadesigns" target="_blank">yours truly</a> with <span class="text--line-through">love</span> <a href="http://github.com/asilvadesigns/fightthebunnies" target="_blank">code</a>.
-      </div>
-    </footer>
+    {% include footer.html %}
+    {% include js.html %}
   </body>
-  {% include js.html %}
 </html>

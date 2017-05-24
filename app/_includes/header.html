@@ -1,0 +1,10 @@
+{% if page.header == default %}
+<header class="header">
+  <div class="header__subtitle">
+    {{ page.date | date: '%B %d, %Y' }}
+  </div>
+  <h3 class="header__title">
+    {{ page.title }}
+  </h3>
+</header>
+{% endif %}

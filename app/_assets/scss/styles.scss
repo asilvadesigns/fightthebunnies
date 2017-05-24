@@ -1,3 +1,11 @@
+//  <div class="feature feature--square feature--rounded">
+//    <img class="feature__image" src="{{ site.baseurl }}img/albertosilva__face.jpg" alt="Alberto Silva's Portrait">
+//  </div>
+//
+//  <p style="max-width: 16em;">
+//    Hello, my name is Alberto Silva. Welcome to my ramblings.
+//  </p>
+
 /*
  *var
  */
@@ -14,20 +22,23 @@ $h1: $h2 * $ratio;
  *tools
  */
 @function toUnit($input, $unit) {
-  @if $unit == 'rem' {
+  @if $unit == "rem" {
     @return $input * 1rem;
   }
-  @if $unit == 'em' {
+
+  @if $unit == "em" {
     @return $input * 1em;
   }
 }
 
-@function rhythm($size, $unit: 'rem') {
+@function rhythm($size, $unit: "rem") {
   $calc: $size * $rhythm;
-  @if $unit == 'rem' {
-    @return toUnit($calc, 'rem');
-  } @else if $unit == 'em' {
-    @return toUnit($calc, 'em');
+
+  @if $unit == "rem" {
+    @return toUnit($calc, "rem");
+  }
+  @else if $unit == "em" {
+    @return toUnit($calc, "em");
   }
 }
 
@@ -57,45 +68,45 @@ hr {
  */
 @font-face {
   font-family: 'MarkWeb-Bold';
-  src: url('../font/MarkWeb-Bold.woff') format('woff');
+  src: url("../font/MarkWeb-Bold.woff") format("woff");
 }
 
 @font-face {
   font-family: 'MarkWeb';
-  src: url('../font/MarkWeb.woff') format('woff');
+  src: url("../font/MarkWeb.woff") format("woff");
 }
 
 @font-face {
   font-family: 'TisaWeb-Bold';
-  src: url('../font/TisaWeb-Bold.woff') format('woff');
+  src: url("../font/TisaWeb-Bold.woff") format("woff");
 }
 
 @font-face {
   font-family: 'TisaWeb';
-  src: url('../font/TisaWeb.woff') format('woff');
+  src: url("../font/TisaWeb.woff") format("woff");
 }
 
-@mixin sans-serif--bold() {
+@mixin sans-serif--bold {
   font-family: 'MarkWeb-Bold', sans-serif;
   font-feature-settings: "kern" 1, "ss01" 1, "pnum" 1, "onum" 1;
 }
 
-@mixin sans-serif() {
+@mixin sans-serif {
   font-family: 'MarkWeb', sans-serif;
   font-feature-settings: "kern" 1, "ss01" 1, "pnum" 1, "onum" 1;
 }
 
-@mixin serif--bold() {
+@mixin serif--bold {
   font-family: 'TisaWeb-Bold', serif;
   font-feature-settings: "frac" 1, "kern" 1, "liga" 1, "pnum" 1, "onum" 1;
 }
 
-@mixin serif() {
+@mixin serif {
   font-family: 'TisaWeb', serif;
   font-feature-settings: "frac" 1, "kern" 1, "liga" 1, "pnum" 1, "onum" 1;
 }
 
-@mixin small-caps() {
+@mixin small-caps {
   font-feature-settings: "smcp" 1;
   text-transform: lowercase;
   letter-spacing: 0.1em;
@@ -107,7 +118,8 @@ html {
 }
 
 body {
-  @include serif();
+  @include serif;
+
   font-size: 1rem;
   line-height: $rhythm;
   color: #333;
@@ -122,23 +134,39 @@ h3,
 h4,
 h5,
 h6 {
-  @include sans-serif--bold();
+  @include sans-serif--bold;
+
   line-height: $ratio;
 }
 
 p {
-  margin-bottom: rhythm(.5);
+  margin-bottom: rhythm(0.5);
 }
 
 strong {
-  @include serif();
-  @include small-caps();
+  @include serif;
+  @include small-caps;
 }
 
 hr {
-  height: rhythm(.125);
+  height: rhythm(0.125);
   width: rhythm(0.625);
   margin: rhythm(1) 0;
+}
+
+blockquote {
+  margin-top: rhythm(2);
+  margin-bottom: rhythm(2);
+  position: relative;
+  left: rhythm(0.5);
+
+  &:before {
+    content: open-quote;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: rhythm(-0.5);
+  }
 }
 
 /*
@@ -163,11 +191,12 @@ hr {
  *header
  */
 .header {
-  margin-bottom: rhythm(.5);
+  margin-bottom: rhythm(0.5);
 }
 
 .header__title {
-  @include sans-serif--bold();
+  @include sans-serif--bold;
+
   font-size: $h4;
 }
 
@@ -179,37 +208,77 @@ hr {
  *navbar
  */
 .navbar {
+  padding-top: rhythm(0.5);
+  padding-bottom: rhythm(0.5);
   margin-bottom: rhythm(2);
 }
 
 .navbar__item {
-  @include sans-serif();
-  @include small-caps();
+  display: inline-flex;
+
+  @include sans-serif;
+
   font-size: $h6;
+  padding-right: rhythm(0.5);
+}
+
+/*
+ *intro
+ */
+.intro {
+  position: relative;
+  left: rhythm(-1.25 + 0.625 / 2);
+
+  .list__item {
+    margin-bottom: 0;
+  }
 }
 
 /*
  *list
  */
 .list {
+  &--inline {
+    .list__item {
+      display: inline-block;
+      vertical-align: middle;
+    }
 
+    .list__item + .list__item {
+      margin-left: rhythm(0.5);
+    }
+  }
 }
 
 .list__item {
-  margin-bottom: rhythm(.5);
+  margin-bottom: rhythm(1);
 }
 
 /*
  *text utilites
  */
 .text {
-
   &--centered {
     text-align: center;
   }
 
+  &--full-stop {
+    &:after {
+      content: ".";
+      margin-left: -0.175em;
+    }
+  }
+
   &--line-through {
     text-decoration: line-through;
+  }
+
+  &--small-caps {
+    @include small-caps;
+  }
+
+  &--uppercase {
+    text-transform: uppercase;
   }
 }
 
@@ -218,11 +287,11 @@ hr {
  */
 .feature {
   position: relative;
-  margin-bottom: rhythm(0.625);
+  margin-bottom: rhythm(1);
 
   &--square {
-    height: 4rem;
-    width: 4rem;
+    height: rhythm(3);
+    width: rhythm(3);
   }
 
   &--rounded {
@@ -239,10 +308,61 @@ hr {
 }
 
 /*
+ *lightbox
+ */
+[data-toggle="lightbox"] {
+  cursor: pointer;
+  //transition: opacity 0.125s ease-in-out;
+  //&:hover {
+  //  opacity: 0.9;
+  //  pointer-events: all;
+  //}
+}
+
+.lightbox__backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  pointer-events: none;
+  background-color: rgba(0, 0, 0, 0.75);
+  background-repeat: no-repeat;
+  background-position: center center;
+
+  //background-size: auto 90%;
+  background-size: contain;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+
+  &.in {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  &:before {
+    content: "click to exit.";
+
+    @include sans-serif;
+
+    font-size: $h6;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    color: white;
+    background-color: black;
+    border-top-right-radius: 6px;
+    padding: rhythm(0.25);
+    line-height: 1;
+  }
+}
+
+/*
  *footer
  */
 .footer {
   font-size: $h6;
+  margin-top: rhythm(2);
 
   a {
     color: dodgerblue;
@@ -266,14 +386,16 @@ hr {
   }
 }
 
-///*
-// *fade
-// */
-//.fade {
-//  opacity: 0;
-//  transition: opacity 0.5s ease-in-out;
-//
-//  &.in {
-//    opacity: 1;
-//  }
-//}
+/*
+ *page layout specific
+ */
+.page {}
+
+/*
+ *post layout specific
+ */
+.post {
+  a {
+    text-decoration: underline;
+  }
+}

@@ -1,4 +1,5 @@
 ---
+title: Computer Science is hard
 ---
 
 It's all Google's fault really, this Foobar test is tough. However, it is thus far one of the most rewarding experiences I've ever.. experienced(deep words). If you don't know what Google Foobar is, a little Googling will get you straight. It seems to be a recruitment tool, or a cruel joke, fun nevertheless and makes you feel like a million bucks if you get an invite.
