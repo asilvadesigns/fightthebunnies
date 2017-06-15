@@ -19,7 +19,7 @@ var paths = {
     jekyllSrv:  "./_site/css/"
   },
   js: {
-    src:        "./app/_assets/js/*.js",
+    src:        "./app/_assets/js/**/*.js",
     dist:       "./app/js/",
     jekyllSrv:  "./_site/js/"
   },

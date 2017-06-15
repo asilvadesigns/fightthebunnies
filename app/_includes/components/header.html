@@ -1,8 +1,7 @@
----
-layout: default
----
+{% if page.header == 'default' %}
 <header class="header">
   <h3 class="header__title">
-    about page!
+    {{ page.title }}
   </h3>
 </header>
+{% endif %}

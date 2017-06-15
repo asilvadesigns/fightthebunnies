@@ -1,0 +1,14 @@
+<div class="list">
+  {% for project in site.projects %}
+  <div class="list__item">
+    <div class="header">
+      <div class="header__subtitle">
+        {{ project.date | date: '%B %d, %Y' }}
+      </div>
+      <a class="header__title" href="{{ site.baseurl }}{{ project.url }}">
+        {{ project.title }}
+      </a>
+    </div>
+  </div>
+  {% endfor %}
+</div>

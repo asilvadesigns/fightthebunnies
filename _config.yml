@@ -6,7 +6,7 @@ title: Fight The Bunnies
 #   Build
 baseurl: ""
 source: "./app"
-permalink: none
+permalink: /:categories/:year/:month/:title.html
 #permalink: /:categories/:title/
 #permalink: /:categories/:year/:month/:day/:title.html
 
@@ -27,22 +27,20 @@ collections:
   pages:
     output: true
     permalink: /:title
+  projects:
+    output: true
+    permalink: /:collection/:name.html
 
 defaults:
+  - scope:
+      type: pages
+    values:
+      layout: page
   - scope:
       type: posts
     values:
       layout: post
   - scope:
-      type: pages
+      type: projects
     values:
-      layout: page
-#    - scope:
-#        type: projects
-#      values:
-#        layout: project
-#    - scope:
-#        type: tools
-#      values:
-#        layout: tool
-#
+      layout: project

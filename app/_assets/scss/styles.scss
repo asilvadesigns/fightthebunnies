@@ -1,11 +1,3 @@
-//  <div class="feature feature--square feature--rounded">
-//    <img class="feature__image" src="{{ site.baseurl }}img/albertosilva__face.jpg" alt="Alberto Silva's Portrait">
-//  </div>
-//
-//  <p style="max-width: 16em;">
-//    Hello, my name is Alberto Silva. Welcome to my ramblings.
-//  </p>
-
 /*
  *var
  */
@@ -63,6 +55,18 @@ hr {
   background-color: currentColor;
 }
 
+button {
+  background-color: transparent;
+  border: 0 none;
+  border-radius: 0;
+  outline: none;
+  cursor: pointer;
+}
+
+button[disabled] {
+  color: inherit;
+}
+
 /*
  *typography
  */
@@ -113,7 +117,7 @@ hr {
 }
 
 html {
-  font-size: 20 / 16 * 100%;
+  font-size: 18 / 16 * 100%;
   height: 100%;
 }
 

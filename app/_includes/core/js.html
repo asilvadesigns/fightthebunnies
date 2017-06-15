@@ -1,0 +1,14 @@
+{% include utilities/base.html %}
+<script defer src="{{base}}/js/scripts.js"></script>
+
+{% if page.scripts %}
+{% for script in page.scripts %}
+	{% if script contains 'http' %}
+	<script src="{{ script }}"></script>
+	{% else if script contains 'default' %}
+	<script src="{{ base }}/js/{{ page.path | replace: '.html','.js' | replace: '_',''}}"></script>
+	{% else %}
+	<script src="{{ base }}/js/core/{{ script }}"></script>
+	{% endif %}
+{% endfor %}
+{% endif %}

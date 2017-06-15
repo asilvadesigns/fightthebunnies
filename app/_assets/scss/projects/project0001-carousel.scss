@@ -1,0 +1,45 @@
+.carousel__body {
+  position: relative;
+  width: 100%;
+  height: 200px;
+}
+
+.carousel__footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.carousel__item {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.carousel__item.active {
+  opacity: 1;
+}
+
+.carousel__item:nth-child(1) {
+  background-color: #eee;
+}
+
+.carousel__item:nth-child(2) {
+  background-color: #ddd;
+}
+
+.carousel__item:nth-child(3) {
+  background-color: #ccc;
+}
+
+.carousel__control {
+  font-size: 0.75em;
+  text-transform: uppercase;
+  padding: 1em 1.2em;
+}

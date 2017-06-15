@@ -1,0 +1,22 @@
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=EDGE">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ site.title }}</title>
+
+  {% include utilities/base.html %}
+  <link rel="stylesheet" href="{{ base }}/css/styles.css">
+
+  {% if page.stylesheets %}
+    {% for stylesheet in page.stylesheets %}
+      {% if stylesheet contains 'http' %}
+      <link rel="stylesheet" href="{{ stylesheet }}">
+      {% else if stylesheet contains 'default' %}
+      <link rel="stylesheet" href="{{ base }}/css/{{ page.path | replace: '.html','.css' | replace: '_',''}}">
+      {% else %}
+      <link rel="stylesheet" href="{{ base }}/css/{{ stylesheet }}">
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+
+</head>
