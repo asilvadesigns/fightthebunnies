@@ -14,17 +14,17 @@ var jekyll = process.platform === 'win32' ? 'jekyll.bat' : 'jekyll';
 //  Paths
 var paths = {
   css: {
-    src:        "./app/_assets/scss/**/*.scss",
-    dist:       "./app/css/",
+    src:        "./_assets/scss/**/*.scss",
+    dist:       "./css/",
     jekyllSrv:  "./_site/css/"
   },
   js: {
-    src:        "./app/_assets/js/**/*.js",
-    dist:       "./app/js/",
+    src:        "./_assets/js/**/*.js",
+    dist:       "./js/",
     jekyllSrv:  "./_site/js/"
   },
-  html:    { src: "./app/**/*.html" },
-  md:      { src: "./app/**/*.md" },
+  html:    { src: "./**/*.html" },
+  md:      { src: "./**/*.md" },
   jekyll:  { src: "./_site/" }
 }
 
