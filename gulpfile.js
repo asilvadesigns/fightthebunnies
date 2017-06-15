@@ -1,36 +1,35 @@
 //
 //  Require
-var gulp   = require("gulp");
-var auto   = require("gulp-autoprefixer");
-var comb   = require("gulp-csscomb");
-var cp	   = require("child_process");
-var nano   = require("gulp-cssnano");
-var scss   = require("gulp-sass");
-var sync   = require("browser-sync");
-var ugly   = require("gulp-uglify");
+var gulp   = require('gulp');
+var auto   = require('gulp-autoprefixer');
+var comb   = require('gulp-csscomb');
+var cp	   = require('child_process');
+var nano   = require('gulp-cssnano');
+var scss   = require('gulp-sass');
+var sync   = require('browser-sync');
+var ugly   = require('gulp-uglify');
 var jekyll = process.platform === 'win32' ? 'jekyll.bat' : 'jekyll';
 
 //
 //  Paths
 var paths = {
   css: {
-    src:        "./_assets/scss/**/*.scss",
-    dist:       "./css/",
-    jekyllSrv:  "./_site/css/"
+    src:        './_assets/scss/**/*.scss',
+    dist:       './css/',
+    jekyllSrv:  './_site/css/'
   },
   js: {
-    src:        "./_assets/js/**/*.js",
-    dist:       "./js/",
-    jekyllSrv:  "./_site/js/"
+    src:        './_assets/js/**/*.js',
+    dist:       './js/',
+    jekyllSrv:  './_site/js/'
   },
-  html:    { src: "./**/*.html" },
-  md:      { src: "./**/*.md" },
-  jekyll:  { src: "./_site/" }
+  html:    { src: [ './_includes/*', './_layouts/*', './_pages/*', './_posts/*', './_projects' ] },
+  jekyll:  { src: './_site/' }
 }
 
 //
 //  Tasks
-gulp.task("default",
+gulp.task('default',
   gulp.series(
     Jekyll,
     Styles,
@@ -88,8 +87,7 @@ function Reload() {
 //
 //  Task Watch - watch for files and take action accordingly
 function Watch() {
-  gulp.watch(paths.html.src).on("change", gulp.series(Jekyll, Reload));
-  gulp.watch(paths.md.src).on("change", gulp.series(Jekyll, Reload));
-  gulp.watch(paths.css.src).on("change", Styles);
-  gulp.watch(paths.js.src).on("change", Scripts);
+  gulp.watch(paths.html.src).on('change', gulp.series(Jekyll, Reload));
+  gulp.watch(paths.css.src).on('change', Styles);
+  gulp.watch(paths.js.src).on('change', Scripts);
 }

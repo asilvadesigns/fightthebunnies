@@ -7,10 +7,8 @@ title: Fight The Bunnies
 baseurl: "/fightthebunnies"     # remote
 #baseurl: ""                     # local
 url: ""                         # the base hostname & protocol for your site
-source: "."
+#source: "./"
 permalink: /:categories/:year/:month/:title.html
-#permalink: /:categories/:title/
-#permalink: /:categories/:year/:month/:day/:title.html
 
 #
 #   Includes
