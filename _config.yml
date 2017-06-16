@@ -4,8 +4,8 @@ title: Fight The Bunnies
 
 #
 #   Build
-baseurl: "/fightthebunnies"     # remote
-#baseurl: ""                     # local
+#baseurl: "/fightthebunnies"     # remote
+baseurl: ""                     # local
 url: ""                         # the base hostname & protocol for your site
 #source: "./"
 permalink: /:categories/:year/:month/:title.html
