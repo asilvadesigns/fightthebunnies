@@ -1,7 +1,7 @@
 ---
 title: My weapon of choice
 ---
-Alacritty, Tmux, Neovim equals much yes, such wow. Plus you gotta have operator mono with the NerdFonts, just look at this beauty...
+Alacritty, Tmux, Neovim equals much yes, such wow. Plus you gotta have operator mono with the NerdFonts, just look at this gorgeous beauty...
 
 <img data-toggle="lightbox" src="{{ site.baseurl }}/img/5-18-2017__weapon-of-choice.png" alt="alacritty terminal with tmux and neovim">
 

@@ -1,4 +1,46 @@
 //
+//  simple fade-in
+var FadeIn = (function(){
+  
+  var body = document.querySelector('body');
+  var links = document.querySelectorAll('a:not([target])');
+
+  function Init() {
+    if (!body) {
+      return;
+    }
+
+    _AddEventListeners();
+    _Fade();
+  }
+
+  function _AddEventListeners() {
+    for (var i = 0; i < links.length; i++) {
+      links[i].addEventListener('click', _HandleClick);
+    }
+  }
+
+  function _HandleClick(e) {
+    var next = e.getAttribute('href');
+    e.preventDefault();
+    _Fade();
+    SetTimeout(function(){
+      window.location.href = next;
+    }, 750);
+  }
+
+  function _Fade() {
+    body.classList.toggle('in');
+  }
+
+  return {
+    init: Init
+  }
+
+})();
+FadeIn.init();
+
+//
 //  simple lightbox for posts
 var LightBox = (function(){
 

@@ -1,9 +1,11 @@
 ---
-layout: default
+layout: page
 ---
+<p class="lead">Alberto Silva is a deseloper in Maryland.<br>Currently, he is trying to defeat Wordpress at HZDG.</p>
+
 <hr>
 
-<div class="list">
+<div class="list list--grid">
   {% assign sorted = (site.posts | sort: 'date') %}
   {% for post in sorted reversed %}
   <div class="list__item">
@@ -14,7 +16,7 @@ layout: default
       <a class="header__title" href="{{ site.baseurl }}{{ post.url }}">
         {{ post.title }}
       </a>
-      {{ post.excerpt | truncate: 120 }}
+      {{ post.excerpt | truncate: 155 }}
     </div>
   </div>
   {% endfor %}

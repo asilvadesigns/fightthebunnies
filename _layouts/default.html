@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
   {% include core__head.html %}
-  <body>
+  <body class="fade">
     {% include components__navbar.html %}
 
     <main class="main">
+      {% if page.wrapper == true %}
       <div class="container">
         {% include components__header.html %}
         {{ content }}
       </div>
+      {% else %}
+      {% include components__header.html %}
+      {{ content }}
+      {% endif %}
     </main>
 
     {% include components__footer.html %}

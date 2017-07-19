@@ -1,0 +1,115 @@
+/*
+ *colors
+ */
+$white: #fff;
+$black: #000;
+$grey-light: #e5e5e5;
+$grey-medium: #a7a3a0;
+$brown-medium: #514840;
+$brown-dark: #221f1d;
+$accent: #f3ad50;
+
+/*
+ *body
+ */
+body {
+  background-color: $grey-light;
+}
+
+/*
+ *header
+ */
+.header {
+
+}
+
+/*
+ *heading
+ */
+.heading {
+
+  &--primary {
+    font-size: 4rem;
+    text-transform: uppercase;
+  }
+
+  &--secondary {
+    font-family: serif;
+  }
+}
+
+
+/*
+ *panel
+ */
+.panel {
+  margin-left: auto;
+  margin-right: auto;
+  padding: 2rem;
+  max-width: 60rem;
+  background-color: $white;
+  border-radius: 1rem;
+}
+
+/*
+ *grid
+ */
+.row {
+  display: flex;
+  margin-left: -1rem;
+  margin-right: -1rem;
+}
+
+.col {
+  float: left;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  flex: 1 1;
+
+  &--7-12 {
+    flex-basis: percentage(7/12);
+  }
+
+  &--5-12 {
+    flex-basis: percentage(5/12);
+  }
+}
+/*
+ *list
+ */
+.list {
+  display: flex;
+  flex-direction: column;
+
+  &--inline {
+    flex-direction: row;
+  }
+}
+
+.list__item {
+  flex: 1 1;
+}
+
+/*
+ *stats rename
+ */
+.stat__title,
+.stat__rename {
+  text-align: center;
+  display: block;
+  letter-spacing: 0.1em;
+}
+
+.stat__title {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+}
+
+.stat__rename {
+  font-style: italic;
+  font-size: 1.4rem;
+
+  sub {
+    font-style: normal;
+  }
+}

@@ -2,7 +2,7 @@
 title: Computer Science is hard
 ---
 
-It's all Google's fault really, this Foobar test is tough. However, it is thus far one of the most rewarding experiences I've ever.. experienced(deep words). If you don't know what Google Foobar is, a little Googling will get you straight. It seems to be a recruitment tool, or a cruel joke, fun nevertheless and makes you feel like a million bucks if you get an invite.
+It's all Google's fault really, this Foobar test is tough. However, it is thus far one of the most rewarding experiences I've ever, experienced. Deep words I know. If you don't know what Google Foobar is, a little Googling will get you straight. It seems to be a recruitment tool, or a cruel joke, fun nevertheless and makes you feel like a million bucks if you get an invite.
 
 I'll have to make a detailed post about it soon enough, I'm just waiting until I get a bit further. It's essentially a code test, you go level by level, where level **n** has **n** challenges, up to level 5 in my case. You are presented with word problems, given an input and expected output, you choose Java or Python, and have whatever amount of time limit to solve it.
 

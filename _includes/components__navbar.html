@@ -1,9 +1,15 @@
 {% include utilities__base.html %}
-<nav class="navbar">
+<nav class="nav">
   <div class="container">
-    <a class="navbar__item" href="{{ base }}/">Home</a>
-    <a class="navbar__item" href="{{ base }}/about.html">About</a>
-    <a class="navbar__item" href="{{ base }}/projects.html">Projects</a>
-    <a class="navbar__item" href="http://github.com/asilvadesigns" target="_blank">Github</a>
+    <div class="nav__group">
+      <div class="nav__logo">
+        <a class="nav__item" href="{{ base }}/">Home</a>
+      </div>
+      <div class="nav__menu">
+        <a class="nav__item" href="{{ base }}/about.html">About</a>
+        <a class="nav__item" href="{{ base }}/projects.html">Projects</a>
+        <a class="nav__item" href="http://github.com/asilvadesigns" target="_blank">Github</a>
+      </div>
+    </div>
   </div>
 </nav>
